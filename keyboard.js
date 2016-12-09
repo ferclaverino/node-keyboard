@@ -8,12 +8,11 @@
  */
 
 var fs = require('fs'),
-    ref = require('ref'),
     EventEmitter = require('events').EventEmitter;
 
 var EV_KEY = 1,
     EVENT_TYPES = ['keyup','keypress','keydown'];
-   
+
 
 function Keyboard(dev) {
   this.wrap('onOpen');
@@ -72,8 +71,8 @@ function parse(input, buffer) {
   if( buffer.readUInt16LE(16) === EV_KEY ) {
 
     event = {
-      timeS: buffer.readUInt64LE(0),
-      timeMS: buffer.readUInt64LE(8),
+      // timeS: buffer.readUInt64LE(0),
+      // timeMS: buffer.readUInt64LE(8),
       keyCode: buffer.readUInt16LE(18)
     };
 
